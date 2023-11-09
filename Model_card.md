@@ -1,19 +1,11 @@
 
 # **Predição de Risco de de Reincidênca Criminal**  
 
-<div style="display: flex; justify-content: space-around; margin-top: 50px">
-
-<img src="assets/ic_unicamp.png" width="200px">
-
-<img src="assets/unicamp.png" width="200px">
-
-</div>
-
 ***
 
-<div style="display: grid; grid-template-columns: auto auto; column-gap: 30px">
+<table>
 
-<div style="margin: 0; padding: 0">
+<td>
 
 ## **Detalhes do modelo**
 
@@ -25,7 +17,8 @@
 **Desenvolvedores**: 
 - Bruno S. Martins, Guilherme P. Corrêa, Igor K. I. O. Nakashima
  
-**Versão**: 1.0
+**Versão**: 
+- 1.0
 
 **Caso de Uso**: 
 - Estimativa de risco de reincidência criminal para ex-detentos do estado de Santa Catarina por parte de organizações não governamentais.
@@ -37,27 +30,20 @@ que representam grandes riscos a liberdade ou bem estar de indivíduos.
 - Não deve ser utilizado dentro do ambiente jurídico ou influenciar em possíveis reduções ou aumentos na pena de cada indivíduo.
 
 **Fatores**:
-- aaa
+- Os fatores envolvem possíveis riscos para grupos específicos de pessoas com base em gênero, cor de pele e educação. 
+ 
+**Métricas**:
+- A principal métrica escolhida para o modelo foi o Recall. Isso se deve ao fato de que o modelo se destina a reintegração de pessoas por parte de organizações não governamentais,
+de modo que se usado adequadamente, esse modelo não deve causar danos a indivíduos.
 
-</div>
+**Dados de Avaliação**:
+- Avaliado com dados particionados do dataset original. Aproximadamente 25% dos dados foram utilizados para teste.
 
-<div style="padding: 0">
-
-## **Análise Quantitativa**
-
-***
-
-<img src="./assets/recall_per_group.png" style="margin-bottom: 35px">
-
-<img src="./assets/precision_per_group.png">
-
-</div>
-
-</div>
+**Dados de Treinamento**:
+- O modelo foi treinado com aproximadamente 75% das amostras do dataset original.
 
 **Arquitetura**: 
-- Regressão Logística calibrada e com hiperparâmetros escolhidos 
-para maximizar o Recall.
+- Regressão Logística calibrada e com hiperparâmetros escolhidos para maximizar o Recall.
 
 **Data de Criação**: 
 - 08 de Novembro de 2023.
@@ -82,9 +68,29 @@ maximizar essa métrica.
 **Resultados de Avaliação**: 
 - O modelo apresentou 64% de Recall no conjunto de 
 teste utilizado. 
+ 
+</td>
+
+<td style="vertical-align: top">
+
+## **Análise Quantitativa**
+***
+
+<img src="./assets/recall_per_group.png" style="margin-bottom: 35px">
+
+<img src="./assets/precision_per_group.png">
 
 ## **Considerações Éticas e Limitações**
 
+***
+
 **Utilização Jurídica**: 
 - Existem sérios problemas associados a utilização desse 
-modelo dentro do contexto jurídico. 
+modelo dentro do contexto jurídico. O
+
+**Recomendações**:
+-  aaaa
+
+</td>
+
+</table>
