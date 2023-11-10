@@ -85,11 +85,18 @@ teste utilizado.
 ***
 
 **Utilização Jurídica**: 
-- Existem sérios problemas associados a utilização desse 
-modelo dentro do contexto jurídico. O
+- O modelo visa apoiar instituições no fornecimento de serviços de ressocialização, não sendo destinado à tomada de decisões judiciais. Isso minimiza preocupações éticas relacionadas a influências indevidas no sistema jurídico.
 
-**Recomendações**:
--  aaaa
+**Recomendações de uso**:
+-  Recomenda-se a integração do modelo como uma ferramenta complementar para aprimorar os serviços de ressocialização, colaborando com profissionais especializados para garantir decisões éticas e eficazes.
+
+**Diversidade Geográfica**:
+
+- O modelo pode não se comportar bem ao ser aplicado a dados de regiões geográficas distintas daquelas em que foi originalmente treinado.
+
+**Temporalidade**:
+
+- A performance do modelo pode ser reduzida com o passar tempo devido a mudanças não previstas nos dados utilizados, como por exemplo a pandemia de COVID-19.
 
 </td>
 
