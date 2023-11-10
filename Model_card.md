@@ -85,7 +85,7 @@ teste utilizado.
 ***
 
 **Utilização Jurídica**: 
-- O modelo visa apoiar instituições no fornecimento de serviços de ressocialização, não sendo destinado à tomada de decisões judiciais. Isso minimiza preocupações éticas relacionadas a influências indevidas no sistema jurídico.
+- O modelo visa apoiar instituições no fornecimento de serviços de ressocialização, não sendo destinado à tomada de decisões judiciais. Isso minimiza preocupações éticas relacionadas a influências indevidas no sistema jurídico e é o que possibilita usar o recall como métrica avaliativa, pois o custo de falsos positivos é baixo comparado a falsos negativos.
 
 **Diversidade Geográfica**:
 
