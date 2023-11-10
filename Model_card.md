@@ -87,9 +87,9 @@ teste utilizado.
 **Utilização Jurídica**: 
 - O modelo visa apoiar instituições no fornecimento de serviços de ressocialização, não sendo destinado à tomada de decisões judiciais. Isso minimiza preocupações éticas relacionadas a influências indevidas no sistema jurídico e é o que possibilita usar o recall como métrica avaliativa, pois o custo de falsos positivos é baixo comparado a falsos negativos.
 
-**Diversidade Geográfica**:
+**Diversidade Demográfica**:
 
-- O modelo pode não se comportar bem ao ser aplicado a dados de regiões geográficas distintas daquelas em que foi originalmente treinado.
+- Como mostrado na análise quantitativa, o modelo pode apresentar diferenças na performance para diferentes grupos demográficos, como maior recall para mulheres e maior precisão para homens, o que origina da distribuição dos dados utilizados durante o treinamento. Além disso, o modelo pode não se comportar bem ao ser aplicado a dados de regiões geográficas distintas daquelas em que foi originalmente treinado.
 
 **Temporalidade**:
 
