@@ -1,202 +1,100 @@
----
-# For reference on model card metadata, see the spec: https://github.com/huggingface/hub-docs/blob/main/modelcard.md?plain=1
-# Doc / guide: https://huggingface.co/docs/hub/model-cards
-{{ card_data }}
----
 
-# Model Card for {{ model_id | default("Model ID", true) }}
+# **Predição de Risco de de Reincidênca Criminal**  
 
-<!-- Provide a quick summary of what the model is/does. -->
+***
 
-{{ model_summary | default("", true) }}
+<table>
 
-## Model Details
+<td>
 
-### Model Description
+## **Detalhes do modelo**
 
-<!-- Provide a longer summary of what this model is. -->
+***
 
-{{ model_description | default("", true) }}
+**Descrição**: 
+- Modelo desenvolvido para a disciplina de Aprendizado de Máquina Ético da Universidade Estadual de Campinas.
+ 
+**Desenvolvedores**: 
+- Bruno S. Martins, Guilherme P. Corrêa, Igor K. I. O. Nakashima
+ 
+**Versão**: 
+- 1.0
 
-- **Developed by:** {{ developers | default("[More Information Needed]", true)}}
-- **Funded by [optional]:** {{ funded_by | default("[More Information Needed]", true)}}
-- **Shared by [optional]:** {{ shared_by | default("[More Information Needed]", true)}}
-- **Model type:** {{ model_type | default("[More Information Needed]", true)}}
-- **Language(s) (NLP):** {{ language | default("[More Information Needed]", true)}}
-- **License:** {{ license | default("[More Information Needed]", true)}}
-- **Finetuned from model [optional]:** {{ base_model | default("[More Information Needed]", true)}}
+**Caso de Uso**: 
+- Estimativa de risco de reincidência criminal para ex-detentos do estado de Santa Catarina por parte de organizações não governamentais.
+- Alocação de recursos para a reintegração de indivíduos com maior possibilidade de reincidência criminal.
+ 
+**Fora de Escopo**: 
+- Esse modelo não deve ser utilizado para casos de uso
+que representam grandes riscos a liberdade ou bem estar de indivíduos. 
+- Não deve ser utilizado dentro do ambiente jurídico ou influenciar em possíveis reduções ou aumentos na pena de cada indivíduo.
 
-### Model Sources [optional]
+**Fatores**:
+- Os fatores envolvem possíveis riscos para grupos específicos de pessoas com base em gênero, cor de pele e educação. 
+ 
+**Métricas**:
+- A principal métrica escolhida para o modelo foi o Recall. Isso se deve ao fato de que o modelo se destina a reintegração de pessoas por parte de organizações não governamentais,
+de modo que se usado adequadamente, esse modelo não deve causar danos a indivíduos.
 
-<!-- Provide the basic links for the model. -->
+**Dados de Avaliação**:
+- Avaliado com dados particionados do dataset original. Aproximadamente 25% dos dados foram utilizados para teste.
 
-- **Repository:** {{ repo | default("[More Information Needed]", true)}}
-- **Paper [optional]:** {{ paper | default("[More Information Needed]", true)}}
-- **Demo [optional]:** {{ demo | default("[More Information Needed]", true)}}
+**Dados de Treinamento**:
+- O modelo foi treinado com aproximadamente 75% das amostras do dataset original.
 
-## Uses
+**Arquitetura**: 
+- Regressão Logística calibrada e com hiperparâmetros escolhidos para maximizar o Recall.
 
-<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
+**Data de Criação**: 
+- 08 de Novembro de 2023.
 
-### Direct Use
+**Informações de Contato**: 
+- Em caso de dúvidas ou questionamentos, qualquer um 
+dos autores do trabalho pode ser contactado.
+ 
+**Pegada de Carbono**: 
+- Treinado diversas vezes utilizando a plataforma colaborativa google colab.
 
-<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
+**Dados de Treinamento**: 
+- O classificador foi treinado utilizando o conjunto de dados 
+"Reincidência Criminal por Gênero em Santa Catarina", disponibilizado pela 
+Universidade Federal de Santa Catarina.
 
-{{ direct_use | default("[More Information Needed]", true)}}
+**Métricas Avaliadas**: 
+- Utilizamos o Recall como principal métrica de avaliação. 
+Desse modo, todos os hiperparâmetros do modelo foram otimizados para 
+maximizar essa métrica.
 
-### Downstream Use [optional]
+**Resultados de Avaliação**: 
+- O modelo apresentou 64% de Recall no conjunto de 
+teste utilizado. 
+ 
+</td>
 
-<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
+<td style="vertical-align: top">
 
-{{ downstream_use | default("[More Information Needed]", true)}}
+## **Análise Quantitativa**
+***
 
-### Out-of-Scope Use
+<img src="./assets/recall_per_group.png" style="margin-bottom: 35px">
 
-<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
+<img src="./assets/precision_per_group.png">
 
-{{ out_of_scope_use | default("[More Information Needed]", true)}}
+## **Considerações Éticas e Limitações**
 
-## Bias, Risks, and Limitations
+***
 
-<!-- This section is meant to convey both technical and sociotechnical limitations. -->
+**Utilização Jurídica**: 
+- O modelo visa apoiar instituições no fornecimento de serviços de ressocialização, não sendo destinado à tomada de decisões judiciais. Isso minimiza preocupações éticas relacionadas a influências indevidas no sistema jurídico e é o que possibilita usar o recall como métrica avaliativa, pois o custo de falsos positivos é baixo comparado a falsos negativos.
 
-{{ bias_risks_limitations | default("[More Information Needed]", true)}}
+**Diversidade Demográfica**:
 
-### Recommendations
+- Como mostrado na análise quantitativa, o modelo pode apresentar diferenças na performance para diferentes grupos demográficos, como maior recall para mulheres e maior precisão para homens, o que origina da distribuição dos dados utilizados durante o treinamento. Além disso, o modelo pode não se comportar bem ao ser aplicado a dados de regiões geográficas distintas daquelas em que foi originalmente treinado.
 
-<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
+**Temporalidade**:
 
-{{ bias_recommendations | default("Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.", true)}}
+- A performance do modelo pode ser reduzida com o passar tempo devido a mudanças não previstas nos dados utilizados, como por exemplo a pandemia de COVID-19.
 
-## How to Get Started with the Model
+</td>
 
-Use the code below to get started with the model.
-
-{{ get_started_code | default("[More Information Needed]", true)}}
-
-## Training Details
-
-### Training Data
-
-<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
-
-{{ training_data | default("[More Information Needed]", true)}}
-
-### Training Procedure 
-
-<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
-
-#### Preprocessing [optional]
-
-{{ preprocessing | default("[More Information Needed]", true)}}
-
-
-#### Training Hyperparameters
-
-- **Training regime:** {{ training_regime | default("[More Information Needed]", true)}} <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
-
-#### Speeds, Sizes, Times [optional]
-
-<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
-
-{{ speeds_sizes_times | default("[More Information Needed]", true)}}
-
-## Evaluation
-
-<!-- This section describes the evaluation protocols and provides the results. -->
-
-### Testing Data, Factors & Metrics
-
-#### Testing Data
-
-<!-- This should link to a Dataset Card if possible. -->
-
-{{ testing_data | default("[More Information Needed]", true)}}
-
-#### Factors
-
-<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
-
-{{ testing_factors | default("[More Information Needed]", true)}}
-
-#### Metrics
-
-<!-- These are the evaluation metrics being used, ideally with a description of why. -->
-
-{{ testing_metrics | default("[More Information Needed]", true)}}
-
-### Results
-
-{{ results | default("[More Information Needed]", true)}}
-
-#### Summary
-
-{{ results_summary | default("", true) }}
-
-## Model Examination [optional]
-
-<!-- Relevant interpretability work for the model goes here -->
-
-{{ model_examination | default("[More Information Needed]", true)}}
-
-## Environmental Impact
-
-<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->
-
-Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
-
-- **Hardware Type:** {{ hardware | default("[More Information Needed]", true)}}
-- **Hours used:** {{ hours_used | default("[More Information Needed]", true)}}
-- **Cloud Provider:** {{ cloud_provider | default("[More Information Needed]", true)}}
-- **Compute Region:** {{ cloud_region | default("[More Information Needed]", true)}}
-- **Carbon Emitted:** {{ co2_emitted | default("[More Information Needed]", true)}}
-
-## Technical Specifications [optional]
-
-### Model Architecture and Objective
-
-{{ model_specs | default("[More Information Needed]", true)}}
-
-### Compute Infrastructure
-
-{{ compute_infrastructure | default("[More Information Needed]", true)}}
-
-#### Hardware
-
-{{ hardware | default("[More Information Needed]", true)}}
-
-#### Software
-
-{{ software | default("[More Information Needed]", true)}}
-
-## Citation [optional]
-
-<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
-
-**BibTeX:**
-
-{{ citation_bibtex | default("[More Information Needed]", true)}}
-
-**APA:**
-
-{{ citation_apa | default("[More Information Needed]", true)}}
-
-## Glossary [optional]
-
-<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
-
-{{ glossary | default("[More Information Needed]", true)}}
-
-## More Information [optional]
-
-{{ more_information | default("[More Information Needed]", true)}}
-
-## Model Card Authors [optional]
-
-{{ model_card_authors | default("[More Information Needed]", true)}}
-
-## Model Card Contact
-
-{{ model_card_contact | default("[More Information Needed]", true)}}
-
-
+</table>
